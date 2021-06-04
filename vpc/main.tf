@@ -84,7 +84,7 @@ resource "aws_route_table_association" "private_subnet_assoc" {
   count          = 2
   route_table_id = "${aws_default_route_table.private_route.id}"
   subnet_id      = "${aws_subnet.private_subnet.*.id[count.index]}"
-  depends_on     = ["aws_default_route_table.private_route", "aws_subnet.private_subnet"]
+  depends_on     = [aws_default_route_table.private_route, aws_subnet.private_subnet]
 }
 
 # Security Group Creation
